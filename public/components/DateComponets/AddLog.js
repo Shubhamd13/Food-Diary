@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useLogs } from "./LogContext";
 
-function MealLog(props) {
-  const mealData= props.mealLog;
-  //console.log(propData);
+export function AddLog() {
+  const [meal, setMeal] = useState("");
+  const [calories, setCalories] = useState("");
+  const {addLog} = useLogs();
 
-  const [meal, setMeal] = useState(mealData.name);
-  const [calories, setCalories] = useState(mealData.calories);
-  const [isEditing, setIsEditing] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle the meal logging logic here, e.g., sending data to a server or updating state.
     console.log(`Logged meal: ${meal} - ${calories} calories`);
-    setIsEditing(false); // Disable editing when meal is logged
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true); // Enable editing
+	addLog( { name: meal, calories: calories, type: "meal" });
   };
 
   return (
@@ -36,7 +31,6 @@ function MealLog(props) {
                 value={meal}
                 onChange={(e) => setMeal(e.target.value)}
                 required
-                disabled={!isEditing}
               />
             </div>
             <div className="mb-3">
@@ -50,23 +44,18 @@ function MealLog(props) {
                 value={calories}
                 onChange={(e) => setCalories(e.target.value)}
                 required
-                disabled={!isEditing}
               />
             </div>
-            {isEditing ? (
-              <button type="button" className="btn btn-primary" onClick={handleSubmit}>
-                Log Meal
-              </button>
-            ) : (
-              <button type="button" className="btn btn-primary" onClick={handleEdit}>
-                Edit
-              </button>
-            )}
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={handleSubmit}
+            >
+              Log Meal
+            </button>
           </form>
         </div>
       </div>
     </div>
   );
 }
-
-export default MealLog;

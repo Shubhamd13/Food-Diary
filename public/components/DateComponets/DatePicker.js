@@ -44,7 +44,7 @@ function DatePicker({selectedDate,handleDateChange}){
         aria-label=""
         className="react-calendar__navigation__arrow react-calendar__navigation__next2-button"
         type="button"
-        onClick={()=> handleDateChange({months:-1})}
+        onClick={()=> handleDateChange({months:1})}
 
       >
         »
