@@ -1,0 +1,24 @@
+/* custom-styles.css */
+.btn {
+	width: 100%;
+}
+.btn-blue {
+	background-color: rgba(40, 40, 206, 0.732);
+	color: white; /* You may want to set text color to make it visible */
+  }
+  
+  .btn-lightbrown {
+	background-color: rgb(210, 180, 140);
+	color: white; /* You may want to set text color to make it visible */
+  }
+  
+  .btn-lightpink {
+	background-color: rgb(255, 182, 193);
+	color: white; /* You may want to set text color to make it visible */
+  }
+  
+  .btn-lightgrey {
+	background-color: rgb(171 162 162);
+	color: white; /* You may want to set text color to make it visible */
+  }
+  

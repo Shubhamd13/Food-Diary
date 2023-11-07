@@ -16,7 +16,6 @@ export function LogsProvider({ children, selectedDate }) {
   }, [selectedDate]);
 
   const addLog = async (log) => {
-    log.logDate = selectedDate;
     const docRef = await addDoc(collection(db, "users", user.uid, "logs"), log);
     dispatch({
       type: "added",
